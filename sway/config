@@ -25,7 +25,70 @@ exec_always $spiralcmd
 exec_always screenshareFix
 exec_always dunst 
 # Setting gaps
-gaps inner 4
+
+# Smooth window/layer transitions
+animation_duration_ms 250
+
+# Window blur
+blur enable
+blur_xray disable
+blur_passes 3
+blur_radius 7
+blur_noise 0.03
+blur_brightness 1.0
+blur_contrast 1.05
+blur_saturation 1.15
+
+# Rounded windows
+corner_radius 12
+
+# Shadows
+shadows enable
+shadows_on_csd enable
+
+shadow_blur_radius 18
+shadow_color #000000aa
+shadow_offset 0 5
+shadow_inactive_color #00000066
+
+# Dim inactive windows
+default_dim_inactive 0.08
+
+layer_effects "waybar" {
+    blur enable;
+    blur_xray disable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    corner_radius 10;
+}
+
+# SwayNC if you later install/use it
+layer_effects "swaync-control-center" {
+    blur enable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    corner_radius 12;
+}
+
+layer_effects "swaync-notification-window" {
+    blur enable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    corner_radius 12;
+}
+
+# ============================================================
+# LAYOUT
+# ============================================================
+
+gaps inner 8
+gaps outer 10
+
+default_border pixel 2
+default_floating_border pixel 2
+
+titlebar_border_thickness 0
+titlebar_padding 4
 
 # Sway borders
 default_border pixel 1
