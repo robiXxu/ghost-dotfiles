@@ -29,3 +29,8 @@ alias dnd "killall dunst"
 alias gp "git push"
 alias xcopy "xclip -selection clipboard"
 alias xpaste "xclip -selection clipboard -o"
+
+alias gst "git status"
+alias vim "nvim"
+alias vi "nvim"
+alias v "nvim"

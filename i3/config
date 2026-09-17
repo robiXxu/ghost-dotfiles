@@ -7,7 +7,7 @@ exec_always gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
 exec_always --no-startup-id xdg-desktop-portal-gtk &
 
 # Monitor
-exec xrandr --output eDP-1 --mode 1920x1080 --rate 144
+exec xrandr --output LVDS-1 --mode 1280x800 --rate 60
 
 # Spiral layout script (python-i3ipc package required)
 set $spiralcmd python3 ~/.config/i3/scripts/spiral_layout.py
@@ -37,7 +37,7 @@ exec_always setxkbmap -option caps:escape
 exec_always --no-startup-id ~/.config/i3/scripts/touchpad.sh
 
 # Setting gaps
-gaps inner 10
+gaps inner 4
 
 # Borders
 default_border pixel 1
@@ -59,7 +59,8 @@ set $right l
 
 set $term kitty --single-instance
 set $menu rofi -show drun
-set $browser 'zen-browser'
+#set $browser 'zen-browser'
+set $browser 'qutebrowser'
 
 ### Key bindings
 

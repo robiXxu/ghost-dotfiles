@@ -6,7 +6,7 @@ exec_always gsettings set $gnome-schema color-scheme 'prefer-dark'
 exec_always gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
 
 # Monitor
-output eDP-1 mode 1920x1080@144Hz
+output LVDS-1 mode 1280x800@60Hz
 
 # Sway spiral layout script (python-i3ipc package required)
 set $spiralcmd 'python3 ~/.config/sway/scripts/spiral_layout.py'
@@ -18,13 +18,13 @@ xwayland enable
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Always run scripts
-exec_always waybar
+exec_always killall waybar; sleep 0.2; waybar &
 exec_always $spiralcmd
 exec_always screenshareFix
-exec_always dunst
+exec_always killall dunst; sleep 0.2; dunst &
 
 # Setting gaps
-gaps inner 10
+gaps inner 4
 
 # Sway borders
 default_border pixel 1
@@ -47,10 +47,11 @@ set $right l
 set $term foot
 set $menu wofi
 # set $browser 'chromium --force-device-scale-factor=1.25'
-set $browser 'zen-browser'
+set $browser 'qutebrowser --qt-flag disable-features=WebAuth'
+# set $browser 'zen-browser'
 
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/.config/wallpapers/img/pinkRose.jpg fill
+output * bg ~/.config/wallpapers/img/Intestellar.jpg fill
 
 # Touchpad tap-to-click
 input type:touchpad {
@@ -78,7 +79,7 @@ input type:touchpad {
     bindsym $mod+Mod1+l exec "swaylock -i $HOME/.config/wallpapers/img/GtfoHD.jpg"
 
     # Toggle Yambar
-    bindsym $mod+semicolon exec killall -SIGUSR1 waybar
+    bindsym $mod+semicolon exec killall -SIGUSR1 fwaybar
 
     # Increase brightness
     bindsym XF86MonBrightnessUp exec 'brightnessctl s +1%'
@@ -94,6 +95,11 @@ input type:touchpad {
     bindsym $mod+Shift+Print exec 'record stop'
 
 		# Music and sound
+
+		bindsym XF86AudioPlay exec 'playerctl play-pause'
+		bindsym XF86AudioStop exec 'playerctl stop'
+		bindsym XF86AudioPrev exec 'playerctl previous'
+		bindsym XF86AudioNext exec 'playerctl next'
 		bindsym $mod+m exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 		bindsym $mod+space exec 'playerctl play-pause'
 		bindsym $mod+n exec 'playerctl next'

@@ -1,9 +1,9 @@
 [
   {
-    "output": "eDP-1",
+    "output": "LVDS-1",
     "layer": "top",
     "position": "top",
-    "height": 35,
+    "height": 32,
     "margin-top": 0,
     "margin-left": 0,
     "margin-right": 0,
