@@ -18,11 +18,12 @@ xwayland enable
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Always run scripts
-exec_always killall waybar; sleep 0.2; waybar &
+# exec_always killall waybar
+# exec_always sleep 0.2; waybar
+exec_always waybar
 exec_always $spiralcmd
 exec_always screenshareFix
-exec_always killall dunst; sleep 0.2; dunst &
-
+exec_always dunst 
 # Setting gaps
 gaps inner 4
 
