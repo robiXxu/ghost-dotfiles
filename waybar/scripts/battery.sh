@@ -13,11 +13,11 @@ while true; do
         display="$bat0%"
     fi
 
-    if [ "$avg" -ge 80 ]; then icon="  "
-    elif [ "$avg" -ge 60 ]; then icon="  "
-    elif [ "$avg" -ge 40 ]; then icon="  "
-    elif [ "$avg" -ge 20 ]; then icon="  "
-    else icon="  "
+    if [ "$avg" -ge 80 ]; then icon="󰂅 "
+    elif [ "$avg" -ge 60 ]; then icon="󰂉 "
+    elif [ "$avg" -ge 40 ]; then icon="󰂈 "
+    elif [ "$avg" -ge 20 ]; then icon="󰂆 "
+    else icon="󰢟 "
     fi
 
     if [ "$state0" = "Discharging" ] || [ "$state1" = "Discharging" ]; then
@@ -26,6 +26,7 @@ while true; do
         class="charging"
     fi
 
-    echo "{\"text\": \"$icon<span color='#c0caf5'>$display</span>\", \"class\": \"$class\"}"
+    echo "{\"text\": \"$icon\", \"class\": \"$class\"}"
+    #echo "{\"text\": \"$icon<span color='#c0caf5'>$display</span>\", \"class\": \"$class\"}"
     sleep 5
 done
