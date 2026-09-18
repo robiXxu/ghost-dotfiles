@@ -34,3 +34,8 @@ alias gst "git status"
 alias vim "nvim"
 alias vi "nvim"
 alias v "nvim"
+
+
+
+
+alias osiris="ssh baldo@10.10.10.10"
